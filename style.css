@@ -487,14 +487,20 @@
           font-size: 20px;
         }
         nav a.btn.sm {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: 44px;
           height: 44px;
-          padding: 10px;
+          padding: 0;
           font-size: 0;
+          line-height: 0;
         }
         nav a.btn.sm svg {
+          display: block;
           width: 18px;
           height: 18px;
+          margin: 0;
         }
         nav a:not(.btn) {
           display: none;
