@@ -478,6 +478,23 @@
         color: #fff;
       }
       @media (max-width: 820px) {
+        header .w {
+          padding: 0 16px;
+        }
+        .logo {
+          gap: 8px;
+          font-size: 20px;
+        }
+        nav a.btn.sm {
+          width: 44px;
+          height: 44px;
+          padding: 10px;
+          font-size: 0;
+        }
+        nav a.btn.sm svg {
+          width: 18px;
+          height: 18px;
+        }
         nav a:not(.btn) {
           display: none;
         }
