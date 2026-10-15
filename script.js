@@ -1,6 +1,48 @@
 // Insira aqui o número do WhatsApp da Correta (apenas números)
 const WHATS = "554130105220";
 
+window.addEventListener("load", () => {
+  document.body.classList.add("is-ready");
+});
+
+const header = document.querySelector("header");
+let lastScrollY = window.scrollY;
+
+window.addEventListener(
+  "scroll",
+  () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > 120 && currentScrollY > lastScrollY) {
+      header.classList.add("is-hidden");
+    } else {
+      header.classList.remove("is-hidden");
+    }
+    lastScrollY = currentScrollY;
+  },
+  { passive: true },
+);
+
+const revealItems = document.querySelectorAll(
+  "main > section, .hero > div, .hero > .ph, .cell, .step, form",
+);
+revealItems.forEach((item) => item.classList.add("reveal"));
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        currentObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 },
+  );
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
 document.getElementById("f").addEventListener("submit", function (e) {
   e.preventDefault();
 
