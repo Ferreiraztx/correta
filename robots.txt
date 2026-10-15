@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://correta-contabil.vercel.app/sitemap.xml
